@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Perfil | Geek-Play</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Mi Perfil</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="foro.html">Foro</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Datos del Usuario</h2>
+      <div id="perfilDatos">
+        <!-- Aquí se insertan los datos del usuario -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Geek-Play</p>
+  </footer>
+
+  <script>
+    const perfilDatos = document.getElementById("perfilDatos");
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+    if (usuario) {
+      perfilDatos.innerHTML = `
+        <p><strong>Correo:</strong> ${usuario.correo}</p>
+        <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+        <p><strong>Fecha de registro:</strong> ${usuario.fecha}</p>
+        <a href="index.html" class="btn">Volver al inicio</a>
+      `;
+    } else {
+      perfilDatos.innerHTML = `
+        <p>No hay sesión activa.</p>
+        <a href="index.html" class="btn">Iniciar sesión</a>
+      `;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Geek-Play | Inicio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Geek-Play</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="foro.html">Foro</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botones de sesión -->
+    <div id="auth-buttons">
+      <button id="btnLogin"> <a href="registro.html"> Iniciar sesión</a></button>
+      <button id="btnRegister"> <a href="registro.html"> Crear Cuenta</a></button>
+      <button id="btnLogout" style="display:none;">Cerrar sesión</button>
+      <a href="perfil.html" id="btnPerfil" style="display:none;" class="btn">Mi perfil</a>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <img src="img/banner.jpg" alt="Banner Geek-Play">
+    <div class="hero-text">
+      <h2>Bienvenido a Geek-Play</h2>
+      <p>Noticias, reseñas y debates sobre videojuegos, cine y cultura geek.</p>
+    </div>
+  </section>
+
+  <!-- Cards de contenido -->
+  <main>
+    <section class="grid">
+      <article class="card">
+        <img src="img/videojuegos.jpg" alt="Videojuegos">
+        <h3>Videojuegos</h3>
+        <p>Últimos lanzamientos, reseñas y análisis.</p>
+        <a href="categorias.html" class="btn">Explorar</a>
+      </article>
+
+      <article class="card">
+        <img src="img/cine.jpg" alt="Cine y Series">
+        <h3>Cine & Series</h3>
+        <p>Estrenos, críticas y curiosidades del mundo geek.</p>
+        <a href="categorias.html" class="btn">Ver más</a>
+      </article>
+
+      <article class="card">
+        <img src="img/tecnologia.jpg" alt="Tecnología Geek">
+        <h3>Tecnología</h3>
+        <p>Gadgets, avances y cultura digital.</p>
+        <a href="categorias.html" class="btn">Descubrir</a>
+      </article>
+    </section>
+
+  <section class="trailer-section">
+  <h2>Tráiler del juego del momento</h2>
+  <div class="trailer">
+    <iframe 
+      src="https://www.youtube.com/embed/0NMoPvqaz10?autoplay=1&mute=1&rel=0" 
+      title="Tráiler Geek"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Geek-Play | Contacto: soporte@geekplay.com</p>
+  </footer>
+
+  <!-- Script principal -->
+  <script src="js/validate.js"></script>
+</body>
+</html>

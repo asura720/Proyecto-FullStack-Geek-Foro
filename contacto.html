@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Geek-Play | Contacto</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Contacto</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="foro.html">Foro</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Formulario de contacto</h2>
+    <form id="formContacto">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" required>
+
+      <label for="correo">Correo:</label>
+      <input type="email" id="correo" required>
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+    <div id="resultado"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Geek-Play</p>
+  </footer>
+
+  <script src="js/validate.js"></script>
+</body>
+</html>
