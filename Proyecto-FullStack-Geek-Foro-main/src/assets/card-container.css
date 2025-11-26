@@ -1,0 +1,24 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 300px;
+}
+
+.card-container .btn {
+  width: 100%;
+  text-align: center;
+}
+
+.card-container .card {
+  margin-bottom: 0;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}

@@ -1,0 +1,32 @@
+/* Badge de notificaciones en navbar */
+.nav-link .badge {
+  font-size: 0.6rem;
+  padding: 0.25em 0.5em;
+  margin-left: -10px;
+  margin-top: -5px;
+}
+
+.nav-link {
+  position: relative;
+}
+
+/* Mejoras del navbar */
+.navbar-brand {
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(138, 43, 226, 0.6);
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #8a2be2;
+  font-weight: 600;
+}

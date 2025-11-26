@@ -1,0 +1,28 @@
+.category-card {
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.category-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.category-card .card-title {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.category-card .card-text {
+    color: #666;
+}
+
+/* Efecto hover para el título */
+.category-card:hover .card-title {
+    color: #007bff;
+}
