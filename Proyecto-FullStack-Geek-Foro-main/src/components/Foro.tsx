@@ -21,6 +21,7 @@ interface Post {
   categorySlug: string;
   creadoEn: string;
   comentarios?: Comment[];
+  comentariosCount?: number;
 }
 
 interface Comment {
@@ -239,8 +240,22 @@ const Foro: React.FC = () => {
       });
 
       if (response.ok) {
+        const newCommentData = await response.json();
+
+        // Actualizar el estado de posts INMEDIATAMENTE con el nuevo comentario
+        setPosts(posts.map(post => {
+          if (post.id === postId) {
+            const updatedComments = [...(post.comentarios || []), newCommentData];
+            return {
+              ...post,
+              comentarios: updatedComments,
+              comentariosCount: (post.comentariosCount || 0) + 1
+            };
+          }
+          return post;
+        }));
+
         setNewComment({ ...newComment, [postId]: '' });
-        await loadComments(postId);
       } else {
         alert('Error al agregar comentario');
       }
@@ -262,7 +277,18 @@ const Foro: React.FC = () => {
       });
 
       if (response.ok) {
-        await loadComments(postId);
+        // Actualizar el estado de posts INMEDIATAMENTE removiendo el comentario eliminado
+        setPosts(posts.map(post => {
+          if (post.id === postId) {
+            const updatedComments = (post.comentarios || []).filter(c => c.id !== commentId);
+            return {
+              ...post,
+              comentarios: updatedComments,
+              comentariosCount: Math.max((post.comentariosCount || 0) - 1, 0)
+            };
+          }
+          return post;
+        }));
       } else {
         alert('Error al eliminar comentario');
       }
@@ -484,7 +510,7 @@ const Foro: React.FC = () => {
                     onClick={() => handleToggleComments(post.id)}
                   >
                     <span className="action-icon">💬</span>
-                    {post.comentarios?.length || 0} comentarios
+                    {post.comentariosCount ?? 0} comentarios
                   </button>
 
                   {(userId === post.autorId.toString() || userRole === 'ADMIN') && (
@@ -503,7 +529,7 @@ const Foro: React.FC = () => {
               {expandedPost === post.id && (
                 <div className="comments-section">
                   <h4 className="comments-title">
-                    💬 Comentarios ({post.comentarios?.length || 0})
+                    💬 Comentarios ({post.comentariosCount ?? 0})
                   </h4>
 
                   {/* Add Comment */}

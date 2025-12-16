@@ -50,6 +50,8 @@ const Notificaciones: React.FC = () => {
           n.id === notificationId ? updatedNotification : n
         )
       );
+      // Emitir evento para actualizar el contador en el Navbar
+      window.dispatchEvent(new Event('notificationChanged'));
     } catch (err: any) {
       alert(err.message || 'Error al marcar como leída');
     } finally {
@@ -66,6 +68,8 @@ const Notificaciones: React.FC = () => {
     try {
       await deleteNotification(notificationId, token);
       setNotifications(notifications.filter((n) => n.id !== notificationId));
+      // Emitir evento para actualizar el contador en el Navbar
+      window.dispatchEvent(new Event('notificationChanged'));
     } catch (err: any) {
       alert(err.message || 'Error al eliminar la notificación');
       setProcessingIds(processingIds.filter(id => id !== notificationId));
@@ -77,7 +81,7 @@ const Notificaciones: React.FC = () => {
     if (!token) return;
 
     const unreadNotifications = notifications.filter((n) => !n.leida);
-    
+
     if (unreadNotifications.length === 0) {
       alert('No hay notificaciones sin leer');
       return;
@@ -88,6 +92,8 @@ const Notificaciones: React.FC = () => {
         await markAsRead(notification.id, token);
       }
       await loadNotifications();
+      // Emitir evento para actualizar el contador en el Navbar
+      window.dispatchEvent(new Event('notificationChanged'));
     } catch (err: any) {
       alert('Error al marcar todas como leídas');
     }
@@ -104,6 +110,8 @@ const Notificaciones: React.FC = () => {
         await deleteNotification(notification.id, token);
       }
       setNotifications([]);
+      // Emitir evento para actualizar el contador en el Navbar
+      window.dispatchEvent(new Event('notificationChanged'));
     } catch (err: any) {
       alert('Error al eliminar todas las notificaciones');
       await loadNotifications();
@@ -133,6 +141,8 @@ const Notificaciones: React.FC = () => {
         return '🎉';
       case 'POST_ELIMINADO':
         return '🗑️';
+      case 'COMENTARIO':
+        return '💬';
       default:
         return '📬';
     }
@@ -150,6 +160,8 @@ const Notificaciones: React.FC = () => {
         return 'notification-bienvenida';
       case 'POST_ELIMINADO':
         return 'notification-advertencia';
+      case 'COMENTARIO':
+        return 'notification-info';
       default:
         return '';
     }
@@ -167,6 +179,8 @@ const Notificaciones: React.FC = () => {
         return 'Bienvenida';
       case 'POST_ELIMINADO':
         return 'Moderación';
+      case 'COMENTARIO':
+        return 'Nuevo Comentario';
       default:
         return tipo;
     }

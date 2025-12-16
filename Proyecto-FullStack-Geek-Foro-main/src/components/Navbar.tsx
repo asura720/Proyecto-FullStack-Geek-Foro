@@ -22,7 +22,17 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, onLogout }) => {
     if (isAuthenticated) {
       loadUnreadCount();
       const interval = setInterval(loadUnreadCount, 30000);
-      return () => clearInterval(interval);
+
+      // Escuchar evento personalizado para actualizar el contador
+      const handleNotificationChange = () => {
+        loadUnreadCount();
+      };
+      window.addEventListener('notificationChanged', handleNotificationChange);
+
+      return () => {
+        clearInterval(interval);
+        window.removeEventListener('notificationChanged', handleNotificationChange);
+      };
     }
   }, [isAuthenticated]);
 

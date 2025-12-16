@@ -43,6 +43,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="video-section">
+        <div className="video-container">
+          <h2 className="section-title">Descubre GeekPlay</h2>
+          <p className="video-description">
+            Conoce más sobre nuestra comunidad y todo lo que tenemos para ofrecerte
+          </p>
+          <div className="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="Video de presentación GeekPlay"
+              style={{ border: 0 }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="features-section">
         <h2 className="section-title">¿Por qué GeekPlay?</h2>
